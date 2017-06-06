@@ -51,3 +51,19 @@ $('.page-main__top-wrapper__aside-form__submit').on('click', (e) => {
 	};
 	return;
 });
+
+
+$(window).on('scroll', (e) => {
+	let scrolled = window.pageYOffset || document.documentElement.scrollTop;
+	if( scrolled > 100) {
+		$('.page-anchor').css('right', '20px');
+	}
+	else {
+		$('.page-anchor').css('right', '-70px');	
+	}
+});
+
+$('.page-anchor').on('click', (e) => {
+	window.scrollTo(0, 0);
+	console.log('click');
+});
