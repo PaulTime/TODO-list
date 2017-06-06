@@ -9911,7 +9911,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 __webpack_require__(0);
 
-var _store = __webpack_require__(8);
+var _store = __webpack_require__(9);
 
 var _store2 = _interopRequireDefault(_store);
 
@@ -9957,6 +9957,20 @@ $('.page-main__top-wrapper__aside-form__submit').on('click', function (e) {
 		store.sortTasks('number', targetContainer);
 	};
 	return;
+});
+
+$(window).on('scroll', function (e) {
+	var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+	if (scrolled > 100) {
+		$('.page-anchor').css('right', '20px');
+	} else {
+		$('.page-anchor').css('right', '-70px');
+	}
+});
+
+$('.page-anchor').on('click', function (e) {
+	window.scrollTo(0, 0);
+	console.log('click');
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
@@ -10038,6 +10052,24 @@ function add(task, elemDOM, container) {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.default = addSort;
+
+__webpack_require__(0);
+
+function addSort(task, elemDOM) {
+	elemDOM.append('<div class="target__task" data-number=' + task.number + '><h6>' + task.taskName + '</h6><p>' + task.description + '</p><button class="target__task__remove">remove task</button></div>');
+};
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 exports.default = remove;
 
 __webpack_require__(0);
@@ -10057,7 +10089,7 @@ function remove(elemDOM, number, container) {
 };
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10070,7 +10102,7 @@ exports.default = sort;
 
 __webpack_require__(0);
 
-var _addSort = __webpack_require__(13);
+var _addSort = __webpack_require__(6);
 
 var _addSort2 = _interopRequireDefault(_addSort);
 
@@ -10100,7 +10132,7 @@ function sort(type, targetContainer, container) {
 };
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10118,11 +10150,11 @@ var _add = __webpack_require__(5);
 
 var _add2 = _interopRequireDefault(_add);
 
-var _sort = __webpack_require__(7);
+var _sort = __webpack_require__(8);
 
 var _sort2 = _interopRequireDefault(_sort);
 
-var _remove = __webpack_require__(6);
+var _remove = __webpack_require__(7);
 
 var _remove2 = _interopRequireDefault(_remove);
 
@@ -10190,28 +10222,6 @@ var MakeStore = function () {
 
 exports.default = MakeStore;
 ;
-
-/***/ }),
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = addSort;
-
-__webpack_require__(0);
-
-function addSort(task, elemDOM) {
-	elemDOM.append('<div class="target__task" data-number=' + task.number + '><h6>' + task.taskName + '</h6><p>' + task.description + '</p><button class="target__task__remove">remove task</button></div>');
-};
 
 /***/ })
 /******/ ]);
